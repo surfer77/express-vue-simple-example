@@ -9,7 +9,7 @@ app.set('view engine', 'vue');
 app.set('views', __dirname + '/views');
 app.set('vue', {
     layoutsDir: 'views/',
-    componentsDir: 'views/',
+    componentsDir: 'views/components/',
     defaultLayout: 'layout'
 });
 
