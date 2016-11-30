@@ -22,10 +22,11 @@ app.get('/', function(req, res){
   res.render('index', {
     data: {
         title: 'Express Vue',
+        message: 'Hello!',
         users: users
     },
     vue: {
-        components: ['users']
+        components: ['users', 'message']
     }
   });
 });
