@@ -1,7 +1,7 @@
 // npm install express
 
 var express = require('express')
-var expressVue = require('express-vue/dist')
+var expressVue = require('express-vue')
 var app = express();
 
 app.engine('vue', expressVue);
