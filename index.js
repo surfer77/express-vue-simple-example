@@ -8,8 +8,7 @@ app.engine('vue', expressVue);
 app.set('view engine', 'vue');
 app.set('views', __dirname + '/views');
 app.set('vue', {
-    layoutsDir: 'views/',
-    componentsDir: 'views/components/',
+    componentsDir: __dirname + '/views/components',
     defaultLayout: 'layout'
 });
 
