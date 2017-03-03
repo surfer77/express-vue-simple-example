@@ -1,14 +1,15 @@
 // npm install express
 
+var path = require('path')
 var express = require('express')
 var expressVue = require('express-vue')
 var app = express();
 
 app.engine('vue', expressVue);
 app.set('view engine', 'vue');
-app.set('views', __dirname + '/views');
+app.set('views', path.join(__dirname, '/views'));
 app.set('vue', {
-    componentsDir: __dirname + '/views/components',
+    componentsDir: path.join(__dirname, '/views/components'),
     defaultLayout: 'layout'
 });
 
