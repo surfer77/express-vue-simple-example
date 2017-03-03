@@ -9,7 +9,6 @@
         <body>
             {{{app}}}
             {{{script}}}
-            <script>app.$mount('#app')</script>
         </body>
     </html>
 </template>

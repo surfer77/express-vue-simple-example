@@ -13,6 +13,7 @@ app.set('vue', {
 });
 
 var users = [];
+var pageTitle = 'Express Vue';
 users.push({ name: 'tobi', age: 12 });
 users.push({ name: 'loki', age: 14  });
 users.push({ name: 'jane', age: 16  });
@@ -20,11 +21,28 @@ users.push({ name: 'jane', age: 16  });
 app.get('/', function(req, res){
   res.render('index', {
     data: {
-        title: 'Express Vue',
+        title: pageTitle,
         message: 'Hello!',
         users: users
     },
     vue: {
+        head: {
+            title: pageTitle,
+            meta: [
+                { property:'og:title', content: pageTitle},
+                { name:'twitter:title', content: pageTitle}
+            ],
+            structuredData: {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "http://www.your-company-site.com",
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+1-401-555-1212",
+            "contactType": "customer service"
+        }]
+    }
+        },
         components: ['users', 'message']
     }
   });
