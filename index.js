@@ -1,5 +1,3 @@
-// npm install express
-
 var path = require('path')
 var express = require('express')
 var expressVue = require('express-vue')
@@ -19,47 +17,56 @@ users.push({ name: 'tobi', age: 12 });
 users.push({ name: 'loki', age: 14  });
 users.push({ name: 'jane', age: 16  });
 
+var exampleMixin = {
+    methods: {
+        hello: function () {
+            console.log('Hello');
+        }
+    }
+}
+
 app.get('/', function(req, res){
-  res.render('index', {
-    data: {
-        title: pageTitle,
-        message: 'Hello!',
-        users: users
-    },
-    vue: {
-        head: {
+    var scope = {
+        data: {
             title: pageTitle,
-            meta: [
-                { property:'og:title', content: pageTitle},
-                { name:'twitter:title', content: pageTitle}
-            ],
-            structuredData: {
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "url": "http://www.your-company-site.com",
-        "contactPoint": [{
-            "@type": "ContactPoint",
-            "telephone": "+1-401-555-1212",
-            "contactType": "customer service"
-        }]
-    }
+            message: 'Hello!',
+            users: users
         },
-        components: ['users', 'message']
-    }
-  });
+        vue: {
+            head: {
+                title: pageTitle,
+                meta: [
+                    { property:'og:title', content: pageTitle},
+                    { name:'twitter:title', content: pageTitle}
+                ],
+                structuredData: {
+                    "@context": "http://schema.org",
+                    "@type": "Organization",
+                    "url": "http://www.your-company-site.com",
+                    "contactPoint": [{
+                        "@type": "ContactPoint",
+                        "telephone": "+1-401-555-1212",
+                        "contactType": "customer service"
+                    }]
+                }
+            },
+            components: ['users', 'message'],
+            mixins: [exampleMixin]
+        }
+    };
+    res.render('index', scope);
 });
 
 app.get('/users/:userName', function(req, res){
     var user = users.filter(function(item) {
         return item.name === req.params.userName;
     })[0];
-  res.render('user', {
-    data: {
-      title: 'Hello My Name is',
-      user: user
-    }
-
-  });
+    res.render('user', {
+        data: {
+            title: 'Hello My Name is',
+            user: user
+        }
+    });
 });
 
 app.listen(3000);
