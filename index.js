@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express');
-const expressVue = require('../dist');
+const expressVue = require('express-vue');
 const app = express();
 
 app.engine('vue', expressVue);
