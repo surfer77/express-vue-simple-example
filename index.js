@@ -50,7 +50,7 @@ app.get('/', function(req, res){
                     }]
                 }
             },
-            components: ['users', 'message'],
+            components: ['users', 'messageComp'],
             mixins: [exampleMixin]
         }
     };

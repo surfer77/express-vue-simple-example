@@ -15,4 +15,7 @@ export default {
 </script>
 
 <style lang="css">
+    .test {
+        color: black;
+    }
 </style>
