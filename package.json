@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "VUE_ENV=server node index.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/danmademe/express-vue-super-simple#readme",
   "dependencies": {
-    "express": "^4.15.2",
-    "express-vue": "^3.9.5"
+    "express": "^4.15.2"
   }
 }

@@ -2,7 +2,7 @@
   <div class="">
       <ul>
           <li v-for="user in users">
-              <a v-bind:href="'/users/' + user.name">{{ user.name }}</a>
+              <a v-bind:href="'/users/' + user.name"class="test">{{ user.name }}</a>
           </li>
       </ul>
   </div>
@@ -15,4 +15,8 @@ export default {
 </script>
 
 <style lang="css">
+    .test {
+        color: pink;
+        font-size: 20px;
+    }
 </style>
