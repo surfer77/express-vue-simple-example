@@ -1,6 +1,6 @@
 <template lang="html">
     <div>
-        <h1>{{title}}</h1>
+        <h1 @click="hello">{{title}}</h1>
         <p>Welcome to the {{title}} demo. Click a link:</p>
         <button type="button" name="button" v-on:click="hello">Say FOO</button>
         <input v-model="message" placeholder="edit me">
@@ -14,6 +14,11 @@
 export default {
     data: function() {
         return {
+        }
+    },
+    methods: {
+        hello: function() {
+            console.log('hello')
         }
     }
 }
